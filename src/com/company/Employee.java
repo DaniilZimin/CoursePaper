@@ -2,8 +2,8 @@ package com.company;
 
 public class Employee {
 
-    private String name;
-    private String surName;
+    private String firstName;
+    private String lastName;
     private String middleName;
     private int department;
     private double salary;
@@ -11,9 +11,9 @@ public class Employee {
 
     private static int counterEmployee = 0;
 
-    public Employee(String name, String surName, String middleName, int department, double salary) {
-        this.name = name;
-        this.surName = surName;
+    public Employee(String name, String lastName, String middleName, int department, double salary) {
+        this.firstName = name;
+        this.lastName = lastName;
         this.middleName = middleName;
         this.department = department;
         this.salary = salary;
@@ -21,19 +21,19 @@ public class Employee {
     }
 
     public String getName() {
-        return name;
+        return firstName;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.firstName = name;
     }
 
-    public String getSurName() {
-        return surName;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getMiddleName() {
@@ -72,13 +72,17 @@ public class Employee {
         return counterEmployee;
     }
 
+    public String getFullName() {
+        return getLastName() + " " + getName() + " " + getMiddleName();
+    }
+
     @Override
     public String toString() {
-        return "name: " + name + '\n' +
-                "surName: " + surName + '\n' +
-                "middleName: " + middleName + '\n' +
-                "department: " + department + '\n' +
-                "salary: " + salary + '\n' +
-                "id: " + id + '\n';
+        return "Имя: " + firstName + '\n' +
+                "Фамилия: " + lastName + '\n' +
+                "Отчество: " + middleName + '\n' +
+                "Отдел: " + department + '\n' +
+                "Зарплата: " + salary + '\n' +
+                "ID: " + id + '\n';
     }
 }

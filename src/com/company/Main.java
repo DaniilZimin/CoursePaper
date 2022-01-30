@@ -16,7 +16,7 @@ public class Main {
         employees[8] = new Employee("Антон", "Назаров", "Иванович", 4, 63385);
         employees[9] = new Employee("Сергей", "Калинин", "Алексеевич", 5, 67490);
 
-        listOfEmployees();
+        printListOfEmployees();
         System.out.println("Сумма затрат на зарплаты в месяц: " + amountOfSalaries() + '\n');
         System.out.println("Сотрудник с минимальной зарплатой: " + '\n' + minSalaryEmployee());
         System.out.println("Сотрудник с максимальной зарплатой: " + '\n' + maxSalaryEmployee());
@@ -24,7 +24,7 @@ public class Main {
         fullNameEmployees();
     }
 
-    public static void listOfEmployees() {
+    public static void printListOfEmployees() {
         for (Employee employee : employees) {
             if (employee != null) {
                 System.out.println(employee);
@@ -46,11 +46,9 @@ public class Main {
         Employee minSalaryEmployee = null;
         double minSalary = Double.MAX_VALUE;
         for (Employee employee : employees) {
-            if (employee != null) {
-                if (employee.getSalary() < minSalary) {
-                    minSalary = employee.getSalary();
-                    minSalaryEmployee = employee;
-                }
+            if (employee != null && employee.getSalary() < minSalary) {
+                minSalary = employee.getSalary();
+                minSalaryEmployee = employee;
             }
         }
         return minSalaryEmployee;
@@ -60,11 +58,9 @@ public class Main {
         Employee maxSalaryEmployee = null;
         double maxSalary = Double.MIN_VALUE;
         for (Employee employee : employees) {
-            if (employee != null) {
-                if (employee.getSalary() > maxSalary) {
-                    maxSalary = employee.getSalary();
-                    maxSalaryEmployee = employee;
-                }
+            if (employee != null && employee.getSalary() > maxSalary) {
+                maxSalary = employee.getSalary();
+                maxSalaryEmployee = employee;
             }
         }
         return maxSalaryEmployee;
@@ -78,7 +74,7 @@ public class Main {
         System.out.println("Ф. И. О. всех сотрудников: ");
         for (Employee employee : employees) {
             if (employee != null) {
-                System.out.println("Фамилия: " + employee.getSurName() + " Имя: " + employee.getName() + " Отчество: " + employee.getMiddleName() + ";");
+                System.out.println(employee.getFullName());
             }
         }
     }
