@@ -20,11 +20,11 @@ public class Employee {
         this.id = counterEmployee++;
     }
 
-    public String getName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setName(String name) {
+    public void setFirstName(String name) {
         this.firstName = name;
     }
 
@@ -73,7 +73,7 @@ public class Employee {
     }
 
     public String getFullName() {
-        return getLastName() + " " + getName() + " " + getMiddleName();
+        return getLastName() + " " + getFirstName() + " " + getMiddleName();
     }
 
     @Override
