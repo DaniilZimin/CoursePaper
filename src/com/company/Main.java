@@ -16,20 +16,23 @@ public class Main {
         employees[8] = new Employee("Антон", "Назаров", "Иванович", 4, 63385);
         employees[9] = new Employee("Сергей", "Калинин", "Алексеевич", 5, 67490);
 
-//        printListOfEmployees();
-//        salaryIndexing(5.5F);
-//        System.out.println("Сумма затрат на зарплаты в месяц: " + amountOfSalaries() + '\n');
-//        System.out.println("Сотрудник с минимальной зарплатой: " + '\n' + minSalaryEmployee());
-//        System.out.println("Сотрудник с максимальной зарплатой: " + '\n' + maxSalaryEmployee());
-//        System.out.println("Среднее значение зарплат: " + averageValueOfSalaries() + '\n');
-//        fullNameEmployees();
+        printListOfEmployees();
+        System.out.println("Сумма затрат на зарплаты в месяц: " + amountOfSalaries() + '\n');
+        System.out.println("Сотрудник с минимальной зарплатой: " + '\n' + minSalaryEmployee());
+        System.out.println("Сотрудник с максимальной зарплатой: " + '\n' + maxSalaryEmployee());
+        System.out.println("Среднее значение зарплат: " + averageValueOfSalaries() + '\n');
+        fullNameEmployees();
+        System.out.println();
+
+        //Повышеная сложность
+        System.out.println("===Повышеная сложность===");
         salaryIndexing(7.2);
-        System.out.println("Сотрудник с минимальной зарплатой в отделе: " + '\n' + minSalaryEmployeeDepartment(4));
-        System.out.println("Сотрудник с максимальной зарплатой в отделе: " + '\n' + maxSalaryEmployeeDepartment(2));
-        System.out.println("Сумма затрат на зарплату по отделу: " + amountOfSalariesDepartment(3) + '\n');
-        System.out.println("Средняя зарплата по отделу: " + averageValueOfSalariesDepartment(5) + '\n');
-        salaryIndexingDepartment(3, 4.6);
-        printListEmployeesDepartment(1);
+        System.out.println("Сотрудник с минимальной зарплатой в отделе: " + '\n' + minSalaryEmployeeInDepartment(4));
+        System.out.println("Сотрудник с максимальной зарплатой в отделе: " + '\n' + maxSalaryEmployeeInDepartment(2));
+        System.out.println("Сумма затрат на зарплату по отделу: " + amountOfSalariesInDepartment(3) + '\n');
+        System.out.println("Средняя зарплата по отделу: " + averageValueOfSalariesInDepartment(5) + '\n');
+        salaryIndexingInDepartment(3, 4.6);
+        printListEmployeesInDepartment(1);
         System.out.println();
         employeesWithASalaryGreaterThanTheNumber(58930);
         System.out.println();
@@ -95,12 +98,12 @@ public class Main {
     public static void salaryIndexing(double index) {
         for (Employee employee : employees) {
             if (employee != null) {
-                employee.setSalary(employee.getSalary() * (index / 100 + 1));
+                employee.indexSalary(index);
             }
         }
     }
 
-    public static Employee minSalaryEmployeeDepartment(int department) {
+    public static Employee minSalaryEmployeeInDepartment(int department) {
         Employee minSalaryEmployee = null;
         double minSalary = Double.MAX_VALUE;
         for (Employee employee : employees) {
@@ -112,7 +115,7 @@ public class Main {
         return minSalaryEmployee;
     }
 
-    public static Employee maxSalaryEmployeeDepartment(int department) {
+    public static Employee maxSalaryEmployeeInDepartment(int department) {
         Employee maxSalaryEmployee = null;
         double maxSalary = 0;
         for (Employee employee : employees) {
@@ -124,7 +127,7 @@ public class Main {
         return maxSalaryEmployee;
     }
 
-    public static double amountOfSalariesDepartment(int department) {
+    public static double amountOfSalariesInDepartment(int department) {
         double sum = 0;
         for (Employee employee : employees) {
             if (employee != null && employee.getDepartment() == department) {
@@ -144,19 +147,19 @@ public class Main {
         return numberOfEmployees;
     }
 
-    public static double averageValueOfSalariesDepartment(int department) {
-        return amountOfSalariesDepartment(department) / numberOfEmployeesInDepartment(department);
+    public static double averageValueOfSalariesInDepartment(int department) {
+        return amountOfSalariesInDepartment(department) / numberOfEmployeesInDepartment(department);
     }
 
-    public static void salaryIndexingDepartment(int department, double index) {
+    public static void salaryIndexingInDepartment(int department, double index) {
         for (Employee employee : employees) {
             if (employee != null && employee.getDepartment() == department) {
-                employee.setSalary(employee.getSalary() * (index / 100 + 1));
+                employee.indexSalary(index);
             }
         }
     }
 
-    public static void printListEmployeesDepartment(int department) {
+    public static void printListEmployeesInDepartment(int department) {
         System.out.println("Список всех сотрудников отдела № " + department + ": ");
         for (Employee employee : employees) {
             if (employee != null && employee.getDepartment() == department) {

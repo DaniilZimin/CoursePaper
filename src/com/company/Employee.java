@@ -11,8 +11,8 @@ public class Employee {
 
     private static int counterEmployee = 0;
 
-    public Employee(String name, String lastName, String middleName, int department, double salary) {
-        this.firstName = name;
+    public Employee(String FirstName, String lastName, String middleName, int department, double salary) {
+        this.firstName = FirstName;
         this.lastName = lastName;
         this.middleName = middleName;
         this.department = department;
@@ -74,6 +74,10 @@ public class Employee {
 
     public String getFullName() {
         return getLastName() + " " + getFirstName() + " " + getMiddleName();
+    }
+
+    public void indexSalary(double index) {
+        this.salary *=  (index / 100 + 1);
     }
 
     @Override
