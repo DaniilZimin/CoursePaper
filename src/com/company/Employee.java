@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Objects;
+
 public class Employee {
 
     private String firstName;
@@ -77,7 +79,7 @@ public class Employee {
     }
 
     public void indexSalary(double index) {
-        this.salary *=  (index / 100 + 1);
+        this.salary *= (index / 100 + 1);
     }
 
     @Override
