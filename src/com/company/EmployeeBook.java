@@ -42,16 +42,18 @@ public class EmployeeBook {
     public void salaryChangeOfEmployee(String firstName, String lastName, String middleName, double newSalary) {
         for (Employee employee : employees) {
             if (employee != null && employee.getFirstName().equals(firstName)
-                                && employee.getLastName().equals(lastName)
-                                && employee.getMiddleName().equals(middleName)) {
-                                employee.setSalary(newSalary);
+                                 && employee.getLastName().equals(lastName)
+                                 && employee.getMiddleName().equals(middleName)) {
+                employee.setSalary(newSalary);
             }
         }
     }
 
     public void departmentChangeOfEmployee(String firstName, String lastName, String middleName, int newDepartment) {
         for (Employee employee : employees) {
-            if (employee != null && employee.getFirstName().equals(firstName) && employee.getLastName().equals(lastName) && employee.getMiddleName().equals(middleName)) {
+            if (employee != null && employee.getFirstName().equals(firstName)
+                                 && employee.getLastName().equals(lastName)
+                                 && employee.getMiddleName().equals(middleName)) {
                 employee.setDepartment(newDepartment);
             }
         }
