@@ -41,8 +41,10 @@ public class EmployeeBook {
 
     public void salaryChangeOfEmployee(String firstName, String lastName, String middleName, double newSalary) {
         for (Employee employee : employees) {
-            if (employee != null && employee.getFirstName().equals(firstName) && employee.getLastName().equals(lastName) && employee.getMiddleName().equals(middleName)) {
-                employee.setSalary(newSalary);
+            if (employee != null && employee.getFirstName().equals(firstName)
+                                && employee.getLastName().equals(lastName)
+                                && employee.getMiddleName().equals(middleName)) {
+                                employee.setSalary(newSalary);
             }
         }
     }
@@ -98,8 +100,18 @@ public class EmployeeBook {
         return maxSalaryEmployee;
     }
 
+    private int numberOfEmployees() {
+        int numberOfEmployees = 0;
+        for (Employee employee : employees) {
+            if (employee != null) {
+                numberOfEmployees++;
+            }
+        }
+        return numberOfEmployees;
+    }
+
     public double averageValueOfSalaries() {
-        return amountOfSalaries() / Employee.getCounterEmployee();
+        return amountOfSalaries() / numberOfEmployees();
     }
 
     public void fullNameEmployees() {
@@ -153,7 +165,7 @@ public class EmployeeBook {
         return sum;
     }
 
-    public int numberOfEmployeesInDepartment(int department) {
+    private int numberOfEmployeesInDepartment(int department) {
         int numberOfEmployees = 0;
         for (Employee employee : employees) {
             if (employee != null && employee.getDepartment() == department) {
