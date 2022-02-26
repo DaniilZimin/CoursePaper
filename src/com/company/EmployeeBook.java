@@ -17,8 +17,8 @@ public class EmployeeBook {
 
     public void removeEmployeeById(int id) {
         for (int i = 0; i < employees.size(); i++) {
-            if (employees.get(i) != null && employees.get(i).getId() == id) {
-                Employee emp = employees.get(i);
+            Employee emp = employees.get(i);
+            if (emp != null && emp.getId() == id) {
                 employees.remove(emp);
                 return;
             }

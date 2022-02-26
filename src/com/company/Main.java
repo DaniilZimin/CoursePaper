@@ -18,7 +18,7 @@ public class Main {
         book.addEmployee("Сергей", "Калинин", "Алексеевич", 5, 67490);
         book.addEmployee("Анатолий", "Бобров", "Владимирович", 5, 67490);
 
-        book.removeEmployeeById(1);
+        book.removeEmployeeById(3);
         book.salaryChangeOfEmployee("Иван", "Иванов", "Иванович", 23077);
         book.departmentChangeOfEmployee("Иван", "Иванов", "Иванович", 4);
         book.printOfAllEmployeesInTheDepartment();
