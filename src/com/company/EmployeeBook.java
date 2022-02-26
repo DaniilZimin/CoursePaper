@@ -1,27 +1,25 @@
 package com.company;
 
-import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EmployeeBook {
-    private Employee[] employees = new Employee[10];
+    private List<Employee> employees = new ArrayList<>();
 
     //Новые методы
+    public List<Employee> getAllEmployees() {
+        return employees;
+    }
+
     public void addEmployee(String firstName, String lastName, String middleName, int department, double salary) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] == null) {
-                employees[i] = new Employee(firstName, lastName, middleName, department, salary);
-                return;
-            }
-        }
-        int oldLength = employees.length;
-        this.employees = Arrays.copyOf(this.employees, employees.length * 2);
-        employees[oldLength] = new Employee(firstName, lastName, middleName, department, salary);
+        employees.add(new Employee(firstName, lastName, middleName, department, salary));
     }
 
     public void removeEmployeeById(int id) {
-        for (int i = 0; i < employees.length; i++) {
-            if (employees[i] != null && employees[i].getId() == id) {
-                employees[i] = null;
+        for (int i = 0; i < employees.size(); i++) {
+            if (employees.get(i) != null && employees.get(i).getId() == id) {
+                Employee emp = employees.get(i);
+                employees.remove(emp);
                 return;
             }
         }
@@ -42,8 +40,8 @@ public class EmployeeBook {
     public void salaryChangeOfEmployee(String firstName, String lastName, String middleName, double newSalary) {
         for (Employee employee : employees) {
             if (employee != null && employee.getFirstName().equals(firstName)
-                                 && employee.getLastName().equals(lastName)
-                                 && employee.getMiddleName().equals(middleName)) {
+                    && employee.getLastName().equals(lastName)
+                    && employee.getMiddleName().equals(middleName)) {
                 employee.setSalary(newSalary);
             }
         }
@@ -52,8 +50,8 @@ public class EmployeeBook {
     public void departmentChangeOfEmployee(String firstName, String lastName, String middleName, int newDepartment) {
         for (Employee employee : employees) {
             if (employee != null && employee.getFirstName().equals(firstName)
-                                 && employee.getLastName().equals(lastName)
-                                 && employee.getMiddleName().equals(middleName)) {
+                    && employee.getLastName().equals(lastName)
+                    && employee.getMiddleName().equals(middleName)) {
                 employee.setDepartment(newDepartment);
             }
         }

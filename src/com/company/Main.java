@@ -1,8 +1,9 @@
 package com.company;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-
         EmployeeBook book = new EmployeeBook();
 
         book.addEmployee("Иван", "Иванов", "Иванович", 1, 58930);
@@ -21,5 +22,8 @@ public class Main {
         book.salaryChangeOfEmployee("Иван", "Иванов", "Иванович", 23077);
         book.departmentChangeOfEmployee("Иван", "Иванов", "Иванович", 4);
         book.printOfAllEmployeesInTheDepartment();
+
+        System.out.println();
+        System.out.println(book.getAllEmployees());
     }
 }
