@@ -18,11 +18,11 @@ public class Main {
         book.addEmployee("Сергей", "Калинин", "Алексеевич", 5, 67490);
         book.addEmployee("Анатолий", "Бобров", "Владимирович", 5, 67490);
 
-        book.removeEmployeeById(3);
-        book.salaryChangeOfEmployee("Иван", "Иванов", "Иванович", 23077);
-        book.departmentChangeOfEmployee("Иван", "Иванов", "Иванович", 4);
+        book.removeEmployeeById("Иванов Иван Иванович");
+        book.salaryChangeOfEmployee("Иванов Иван Иванович",23077);
+        book.departmentChangeOfEmployee("Иванов Иван Иванович",4);
         book.printOfAllEmployeesInTheDepartment();
-
+        book.printListOfEmployees();
         System.out.println();
         System.out.println(book.getAllEmployees());
     }

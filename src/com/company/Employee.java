@@ -1,7 +1,5 @@
 package com.company;
 
-import java.util.Objects;
-
 public class Employee {
 
     private String firstName;
@@ -9,9 +7,6 @@ public class Employee {
     private String middleName;
     private int department;
     private double salary;
-    private int id;
-
-    private static int counterEmployee = 0;
 
     public Employee(String FirstName, String lastName, String middleName, int department, double salary) {
         this.firstName = FirstName;
@@ -19,7 +14,6 @@ public class Employee {
         this.middleName = middleName;
         this.department = department;
         this.salary = salary;
-        this.id = counterEmployee++;
     }
 
     public String getFirstName() {
@@ -62,18 +56,6 @@ public class Employee {
         this.salary = salary;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public static int getCounterEmployee() {
-        return counterEmployee;
-    }
-
     public String getFullName() {
         return getLastName() + " " + getFirstName() + " " + getMiddleName();
     }
@@ -88,7 +70,6 @@ public class Employee {
                 "Фамилия: " + lastName + '\n' +
                 "Отчество: " + middleName + '\n' +
                 "Отдел: " + department + '\n' +
-                "Зарплата: " + salary + '\n' +
-                "ID: " + id + '\n';
+                "Зарплата: " + salary;
     }
 }
