@@ -19,10 +19,7 @@ public class EmployeeBook {
     }
 
     public void removeEmployeeById(String fullName) {
-        if (employees.containsKey(fullName)) {
-            employees.remove(fullName);
-            return;
-        } else {
+        if (employees.remove(fullName) == null) {
             System.out.println("Работника с ФИО " + fullName + " не найдено. Удаление не выполнено!");
         }
     }
@@ -40,13 +37,15 @@ public class EmployeeBook {
 
     public void salaryChangeOfEmployee(String fullName, double newSalary) {
         if (employees.containsKey(fullName)) {
-            employees.get(fullName).setSalary(newSalary);
+            employees.get(fullName)
+                    .setSalary(newSalary);
         }
     }
 
     public void departmentChangeOfEmployee(String fullName, int newDepartment) {
         if (employees.containsKey(fullName)) {
-            employees.get(fullName).setDepartment(newDepartment);
+            employees.get(fullName)
+                    .setDepartment(newDepartment);
         }
     }
 
